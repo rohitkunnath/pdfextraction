@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock, patch
 import asyncio
-from main2 import start_chat, handle_message  # Replace `your_module_name` with the actual module name
+from main2 import start_chat, handle_message 
 
 @pytest.fixture
 def mock_file():
@@ -48,7 +48,7 @@ async def test_start_chat(mock_file, mock_cl):
 
             await start_chat()
 
-            # Check that the processing message was sent
+            
             message_cls.assert_called_with(content="Processing `test.pdf` done. You can now ask questions!")
 
 @pytest.mark.asyncio
@@ -64,7 +64,7 @@ async def test_handle_message(mock_chain, mock_cl):
 
         await handle_message(test_message)
 
-        # Check that the message with the answer was sent
+        
         message_cls.assert_called_with(content="Test answer\nSources: source_0, source_1")
 
 if __name__ == "__main__":
